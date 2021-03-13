@@ -12,13 +12,18 @@ public class PlayerController : MonoBehaviour
     private float movementLimits;
     public HealthSystem healthSystem;
     public bool gameOver = false;
+    public float force = 40f;
+    Rigidbody2D rb2d;
 
     void Start()
     {
+        // Inicia o sistema de vida;
         healthSystem = new HealthSystem(3);
 
         // Tamanho do Player
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
+
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
 
@@ -55,6 +60,14 @@ public class PlayerController : MonoBehaviour
         {
             healthSystem.Damage(1);
             Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
     }
 }
