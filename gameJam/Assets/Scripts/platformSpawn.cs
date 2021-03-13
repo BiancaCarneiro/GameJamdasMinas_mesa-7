@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class platformSpawn : MonoBehaviour
 {
-    public static bool destroyed = true;
+    public static int colisoes = 0;
     public GameObject platform;
-    public Transform pointSpaw;
     
     void Update()
     {
-        if(destroyed){ // ele ve se a plataforma anterior foi destruida, se sim, cria uma nova
-            destroyed = false;
-            GameObject plat = Instantiate(platform, pointSpaw.position, pointSpaw.rotation);
+        if(colisoes > 0){
+            var position = new Vector3(Random.Range(-3f, 3.2f), 5.5f, 0);
+            GameObject plat = Instantiate(platform, position, Quaternion.identity);
+            colisoes--;
         }
     }
 }

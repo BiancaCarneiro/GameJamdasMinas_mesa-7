@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool gameOver = false;
     public float force = 40f;
     Rigidbody2D rb2d;
+    private StartScript startScript;
 
     void Start()
     {
@@ -22,14 +23,16 @@ public class PlayerController : MonoBehaviour
 
         // Tamanho do Player
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
-
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+
+        startScript = GameObject.Find("GameHandler").GetComponent<StartScript>();
+        rb2d.gravityScale = 2f;
     }
 
 
     void Update()
     {
-        // Variáveis
+        // Variï¿½veis
         bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         movementLimits = bounds.x - playerWidth;
 
@@ -48,26 +51,20 @@ public class PlayerController : MonoBehaviour
         }
 
         // Se o Player perde todas as vidas, o jogo acaba
-        if (healthSystem.GetHealth() == 0)
+        if (transform.position.y < -5.5 || healthSystem.GetHealth() == 0)
         {
             gameOver = true;
-        }
+            Debug.Log(gameOver);
+            //startScript.started = true;
+        } 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Se o Player é atingido por um projétil, ele perde uma vida
+        // Se o Player ï¿½ atingido por um projï¿½til, ele perde uma vida
         if (collision.gameObject.CompareTag("Projectile"))
         {
             healthSystem.Damage(1);
             Destroy(collision.gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
     }
 }
