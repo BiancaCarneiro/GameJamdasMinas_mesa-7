@@ -11,9 +11,9 @@ public class CheckHeight : MonoBehaviour
 
     void Update()
     {
-        // Inimigo aparece se o Player atingir certa altura
         bgHeight = GameObject.Find("Background").transform.position.y;
 
+        // Inimigo aparece quando o "Player" atinge (background desce) certa altura
         if (bgHeight <= -enemyHeight)
         {
             enemy.SetActive(true);

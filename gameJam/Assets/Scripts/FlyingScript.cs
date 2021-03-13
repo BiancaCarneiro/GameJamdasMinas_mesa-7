@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class FlyingScript : MonoBehaviour
 {
+    // Variáveis
     public float speed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private StartScript startScript;
 
-    // Update is called once per frame
+    // Faz o objeto voar
     void Update()
     {
-        transform.Translate(Vector2.up * Time.deltaTime * speed);
+        startScript = GameObject.Find("GameHandler").GetComponent<StartScript>();
+
+        if (startScript.canStart)
+        {
+            transform.Translate(Vector2.up * Time.deltaTime * speed);
+        }
     }
 }

@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
     private float movementLimits;
     public HealthSystem healthSystem;
     public bool gameOver = false;
-    public float force = 40f;
+    public float force = 12f;
     Rigidbody2D rb2d;
+    private StartScript startScript;
 
     void Start()
     {
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
 
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        startScript = GameObject.Find("GameHandler").GetComponent<StartScript>();
+
+        rb2d.gravityScale = 2f;
     }
 
 
@@ -52,7 +56,14 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
         }
+
+        if (startScript.canStart && !startScript.started)
+        {
+            rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+            startScript.started = true;
+        }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Se o Player é atingido por um projétil, ele perde uma vida
@@ -65,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.CompareTag("Platform") && startScript.canStart)
         {
             rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
