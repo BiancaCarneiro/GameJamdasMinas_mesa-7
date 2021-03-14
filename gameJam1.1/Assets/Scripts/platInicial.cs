@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class platInicial : MonoBehaviour
 {
-    float counterT = 5;
+    float counterT = 5;    
     float speed = 3f;
     public GameObject platform;
     public float jumpForce = 10f;

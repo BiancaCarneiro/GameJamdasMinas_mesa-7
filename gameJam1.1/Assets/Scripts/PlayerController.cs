@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     // Variaveis
     private float horizontalInput;
     public float speed = 6f;
-    private Vector3 bounds;
+    private Vector3 bounds;    
+    private float aux;
     private float playerWidth;
     private float movementLimits;
     public HealthSystem healthSystem;
@@ -23,8 +24,8 @@ public class PlayerController : MonoBehaviour
         // Tamanho do Player
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-
-        rb2d.gravityScale = 2f;
+        aux = transform.position.y;
+        rb2d.gravityScale = 2f; 
     }
 
 
@@ -47,7 +48,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(movementLimits, transform.position.y);
         }
-
         // Se o Player perde todas as vidas, o jogo acaba
         if (transform.position.y < -bounds.y || healthSystem.GetHealth() == 0)
         {
