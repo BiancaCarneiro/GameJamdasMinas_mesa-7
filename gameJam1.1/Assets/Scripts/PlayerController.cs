@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool gameOver = false;
     public float force = 40f;
     Rigidbody2D rb2d;
+    public bool isGrounded = true;
 
     void Start()
     {
@@ -23,7 +24,6 @@ public class PlayerController : MonoBehaviour
         // Tamanho do Player
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-
 
         rb2d.gravityScale = 2f;
     }
