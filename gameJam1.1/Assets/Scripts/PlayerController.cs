@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     private float movementLimits;
     public HealthSystem healthSystem;
     public bool gameOver = false;
-    public float force = 40f;
     Rigidbody2D rb2d;
 
     void Start()
@@ -25,7 +24,8 @@ public class PlayerController : MonoBehaviour
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         aux = transform.position.y;
-        rb2d.gravityScale = 2f; 
+
+        rb2d.gravityScale = 2f;
     }
 
 

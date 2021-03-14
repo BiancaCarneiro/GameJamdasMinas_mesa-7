@@ -6,7 +6,7 @@ public class FlyingScript : MonoBehaviour
 {
     // Variaveis
     public float speed;
-    float counterT = 1; 
+    float counterT = 0.5f; 
 
 
     void Update()
