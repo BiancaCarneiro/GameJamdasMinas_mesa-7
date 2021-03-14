@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public bool gameOver = false;
     public float force = 40f;
     Rigidbody2D rb2d;
-    public bool isGrounded = true;
 
     void Start()
     {
@@ -53,7 +52,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -bounds.y || healthSystem.GetHealth() == 0)
         {
             gameOver = true;
-        } 
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -19,7 +19,7 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         // Aperte espaco para comecar
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             paused = false;
         }
@@ -28,7 +28,8 @@ public class GameHandler : MonoBehaviour
         if (!paused)
         {
             Time.timeScale = 1;
-        } else
+        }
+        else
         {
             Time.timeScale = 0;
         }

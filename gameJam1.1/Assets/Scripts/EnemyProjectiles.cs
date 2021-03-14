@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyProjectiles : MonoBehaviour
 {
-    // Variáveis
+    // Variaveis
     public GameObject[] ammo;
     private int ammoRandomizer;
     public float rate = 1f;
@@ -14,7 +14,7 @@ public class EnemyProjectiles : MonoBehaviour
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
-    // Inimigo ficará atirando em um ritmo determinado
+    // Inimigo ficara atirando em um ritmo determinado
     private void Awake()
     {
         InvokeRepeating("Ammo", 0, rate);
@@ -22,10 +22,10 @@ public class EnemyProjectiles : MonoBehaviour
 
     void Ammo()
     {
-        // Se o jogo não tiver acabado, faça algo
+        // Se o jogo nao tiver acabado, faça algo
         if (!playerController.gameOver)
         {
-            // Randomiza e instancia o projétil
+            // Randomiza e instancia o projetil
             ammoRandomizer = Random.Range(0, ammo.Length);
             Instantiate(ammo[ammoRandomizer], this.transform.position, ammo[ammoRandomizer].transform.rotation);
         }

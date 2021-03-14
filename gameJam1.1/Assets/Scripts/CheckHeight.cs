@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckHeight : MonoBehaviour
 {
-    // Variáveis
+    // Variaveis
     public float bgHeight;
     public GameObject enemy;
     public float enemyHeight;

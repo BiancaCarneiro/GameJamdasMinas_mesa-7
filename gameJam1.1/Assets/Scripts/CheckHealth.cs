@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CheckHealth : MonoBehaviour
 {
+    // Variaveis
     PlayerController playerController;
     int lastHealth;
 
     void Start()
     {
-        lastHealth = 3; // VIDA MÁXIMA
+        lastHealth = 3; // VIDA MAXIMA
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
@@ -18,7 +19,7 @@ public class CheckHealth : MonoBehaviour
         // Checa se o Player tomou dano
         if (playerController.healthSystem.GetHealth() < lastHealth)
         {
-            // Some um coração quando o player é atingido.
+            // Some um coracao quando o player e atingido.
             switch (playerController.healthSystem.GetHealth())
             {
                 case 0:

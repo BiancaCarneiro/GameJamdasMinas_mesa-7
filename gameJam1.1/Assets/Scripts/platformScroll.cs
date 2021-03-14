@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class platformScroll : MonoBehaviour
 {
-    public static int colidiu; // essa variável vai mandar a info se o objeto colidiu ou nao
+    public static int colidiu; // essa variavel vai mandar a info se o objeto colidiu ou nao
     public float jumpForce = 12f;
     float speed = 3f;
     public GameObject platform;
@@ -15,8 +15,8 @@ public class platformScroll : MonoBehaviour
         colidiu = 0;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
-    }  
-    
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.relativeVelocity.y <= 0f)
@@ -32,11 +32,12 @@ public class platformScroll : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, transform.position.y - speed), speed*Time.deltaTime);
-        if(platform.transform.position.y < -6){
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, transform.position.y - speed), speed * Time.deltaTime);
+        if (platform.transform.position.y < -6)
+        {
             Destroy(platform);
         }
     }

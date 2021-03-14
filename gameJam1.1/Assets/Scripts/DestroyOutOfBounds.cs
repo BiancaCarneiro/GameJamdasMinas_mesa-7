@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOutOfBounds  : MonoBehaviour
+public class DestroyOutOfBounds : MonoBehaviour
 {
-    // Variáveis
+    // Variaveis
     private Vector3 bounds;
     public float tolerance = 1f;
 
-    // Se o objeto ultrapassar as barreiras, será destruído
+    // Se o objeto ultrapassar as barreiras, sera destruido
     void Update()
     {
         if (transform.position.y < -GetBounds().y - tolerance || transform.position.y > GetBounds().y + tolerance)
