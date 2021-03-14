@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     // Variaveis
     private float horizontalInput;
     public float speed = 6f;
-    private Vector3 bounds;
+    private Vector3 bounds;    
+    public Animator animator;
+    private float aux;
     private float playerWidth;
     private float movementLimits;
     public HealthSystem healthSystem;
@@ -23,13 +25,20 @@ public class PlayerController : MonoBehaviour
         // Tamanho do Player
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-
-        rb2d.gravityScale = 2f;
+        aux = transform.position.y;
+        rb2d.gravityScale = 2f; 
     }
 
 
     void Update()
     {
+        aux = transform.position.y - aux; //vou pegar o final menos o inicial, se for positivo ele ta subindo, se for negativo ta descendo 
+        if(aux > 0){
+            animator.SetInteger("Estado", 1); //ta pulando
+        }else if (aux < 0){
+            animator.SetInteger("Estado", 2); //ta caindo
+        }else animator.SetInteger("Estado", 0); //ta parado
+
         // Variaveis
         bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         movementLimits = bounds.x - playerWidth;
