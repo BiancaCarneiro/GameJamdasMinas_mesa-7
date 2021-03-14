@@ -22,7 +22,7 @@ public class backgroundScroll : MonoBehaviour
             platform.transform.position = Vector2.MoveTowards(transform.position, pos, newPos);// move para baixo
         }
         if(platform.transform.position.y < -6){
-            platformSpawn.destroyed = true;
+            //platformSpawn.destroyed = true;
             Destroy(platform);
         }
     }

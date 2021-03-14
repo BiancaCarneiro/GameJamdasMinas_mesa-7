@@ -12,9 +12,8 @@ public class PlayerController : MonoBehaviour
     private float movementLimits;
     public HealthSystem healthSystem;
     public bool gameOver = false;
-    public float force = 12f;
+    public float force = 40f;
     Rigidbody2D rb2d;
-    private StartScript startScript;
 
     void Start()
     {
@@ -24,20 +23,15 @@ public class PlayerController : MonoBehaviour
         // Tamanho do Player
         playerWidth = transform.GetComponent<Collider2D>().bounds.size.x / 2;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
 
-        startScript = GameObject.Find("GameHandler").GetComponent<StartScript>();
-=======
-        startScript = GameObject.Find("GameHandler").GetComponent<StartScript>();
 
->>>>>>> 189771943d1007e0fc142895cd22b046eec9ac1c
         rb2d.gravityScale = 2f;
     }
 
 
     void Update()
     {
-        // Vari�veis
+        // Variaveis
         bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         movementLimits = bounds.x - playerWidth;
 
@@ -56,42 +50,18 @@ public class PlayerController : MonoBehaviour
         }
 
         // Se o Player perde todas as vidas, o jogo acaba
-        if (transform.position.y < -5.5 || healthSystem.GetHealth() == 0)
+        if (transform.position.y < -bounds.y || healthSystem.GetHealth() == 0)
         {
             gameOver = true;
-<<<<<<< HEAD
-            Debug.Log(gameOver);
-            //startScript.started = true;
         } 
-=======
-        }
-
-        if (startScript.canStart && !startScript.started)
-        {
-            rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-            startScript.started = true;
-        }
->>>>>>> 189771943d1007e0fc142895cd22b046eec9ac1c
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Se o Player � atingido por um proj�til, ele perde uma vida
+        // Se o Player for atingido por um projetil, ele perde uma vida
         if (collision.gameObject.CompareTag("Projectile"))
         {
             healthSystem.Damage(1);
             Destroy(collision.gameObject);
         }
     }
-<<<<<<< HEAD
-=======
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Platform") && startScript.canStart)
-        {
-            rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-        }
-    }
->>>>>>> 189771943d1007e0fc142895cd22b046eec9ac1c
 }

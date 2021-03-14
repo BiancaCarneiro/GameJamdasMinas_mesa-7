@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class HideText : MonoBehaviour
 {
-    StartScript startScript;
+    GameHandler gameHandler;
 
     void Start()
     {
-        startScript = GameObject.Find("GameHandler").GetComponent<StartScript>();
+        gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
     }
 
     void Update()
     {
-        if (startScript.canStart == true)
+        if (!gameHandler.paused)
         {
             GameObject.Find("Text").SetActive(false);
         }
