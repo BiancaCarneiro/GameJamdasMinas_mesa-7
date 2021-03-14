@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec9de484fb68b447a20297d03bc90b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 12
+  jumpForce: 10
   platform: {fileID: 512296181654412092}
 --- !u!68 &-407354765774575401
 EdgeCollider2D:

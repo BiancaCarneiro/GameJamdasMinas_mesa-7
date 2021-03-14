@@ -946,7 +946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &810099606
 Transform:
   m_ObjectHideFlags: 0
@@ -1574,6 +1574,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 810099606}
     m_Modifications:
+    - target: {fileID: 9113438541850272480, guid: 8cdc8a00e72ad19468f2e4dcc81dd0e3, type: 3}
+      propertyPath: rate
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9113438541850272487, guid: 8cdc8a00e72ad19468f2e4dcc81dd0e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.259
@@ -1844,7 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 1740558707}
-  jumpForce: 10
+  jumpForce: 11
 --- !u!50 &1740558712
 Rigidbody2D:
   serializedVersion: 4
@@ -1923,7 +1927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8860d5a7c934a874eb2001d2304a8f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winHeight: 60
+  counter: 0
 --- !u!1 &2048742296
 GameObject:
   m_ObjectHideFlags: 0

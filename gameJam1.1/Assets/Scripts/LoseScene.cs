@@ -7,7 +7,8 @@ public class LoseScene : MonoBehaviour
 {
     PlayerController playerController;
     CheckHeight checkHeight;
-    public float winHeight = 20f;
+    private float winCondition = 35f;
+    public float counter;
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -21,9 +22,13 @@ public class LoseScene : MonoBehaviour
             SceneManager.LoadScene("Derrota");
         }
 
-        if (checkHeight.bgHeight <= -winHeight)
+        if (checkHeight.bgHeight <= -54)
         {
-            SceneManager.LoadScene("Vitoria");
+            counter += Time.deltaTime * 2;
+            if (counter >= winCondition)
+            {
+                SceneManager.LoadScene("Vitoria");
+            }
         }
     }
 }
