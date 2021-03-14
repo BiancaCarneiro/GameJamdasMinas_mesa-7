@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     public float speed = 6f;
     private Vector3 bounds;    
-    public Animator animator;
     private float aux;
     private float playerWidth;
     private float movementLimits;
@@ -32,13 +31,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        aux = transform.position.y - aux; //vou pegar o final menos o inicial, se for positivo ele ta subindo, se for negativo ta descendo 
-        if(aux > 0){
-            animator.SetInteger("Estado", 1); //ta pulando
-        }else if (aux < 0){
-            animator.SetInteger("Estado", 2); //ta caindo
-        }else animator.SetInteger("Estado", 0); //ta parado
-
         // Variaveis
         bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         movementLimits = bounds.x - playerWidth;
@@ -56,7 +48,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(movementLimits, transform.position.y);
         }
-
         // Se o Player perde todas as vidas, o jogo acaba
         if (transform.position.y < -bounds.y || healthSystem.GetHealth() == 0)
         {
