@@ -16,6 +16,7 @@ public class WinLoseCondition : MonoBehaviour
 
     void Start()
     {
+        timerText.enabled = false;
         counter = winCondition;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         checkHeight = GameObject.Find("CheckHeight").GetComponent<CheckHeight>();
@@ -32,10 +33,15 @@ public class WinLoseCondition : MonoBehaviour
         {
             Timer();
         }
+        else
+        {
+            timerText.enabled = false;
+        }
     }
 
     void Timer()
     {
+        timerText.enabled = true;
         timer += Time.deltaTime;
         while (timer >= 1)
         {
