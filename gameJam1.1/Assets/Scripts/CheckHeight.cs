@@ -19,5 +19,10 @@ public class CheckHeight : MonoBehaviour
             BackgroundMovement.desce = false;
             enemy.SetActive(true);
         }
+        else
+        {
+            BackgroundMovement.desce = true;
+            enemy.SetActive(false);
+        }
     }
 }

@@ -8,7 +8,6 @@ public class platformSpawn : MonoBehaviour
     public static int colisoes = 0;
     public GameObject platform;
     float prop = 3/10;
-    private float tolerance = 0.5f;
     float limiteX = 3f;
 
     void Update()
