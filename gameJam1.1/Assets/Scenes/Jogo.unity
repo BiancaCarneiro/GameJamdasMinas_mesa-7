@@ -2391,6 +2391,18 @@ PrefabInstance:
       propertyPath: rate
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9113438541850272480, guid: 8cdc8a00e72ad19468f2e4dcc81dd0e3, type: 3}
+      propertyPath: ammo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113438541850272480, guid: 8cdc8a00e72ad19468f2e4dcc81dd0e3, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6670177128274185092, guid: 96038650c66f3ad419ff5b531c501448, type: 3}
+    - target: {fileID: 9113438541850272480, guid: 8cdc8a00e72ad19468f2e4dcc81dd0e3, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 6670177128274185092, guid: 2aac8ca0b460b8d408cb76be83fc2434, type: 3}
     - target: {fileID: 9113438541850272487, guid: 8cdc8a00e72ad19468f2e4dcc81dd0e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.259
