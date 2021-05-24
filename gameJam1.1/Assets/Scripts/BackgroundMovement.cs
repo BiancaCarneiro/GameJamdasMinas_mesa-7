@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundMovement : MonoBehaviour
 {
-    // Variaveis
-    public float speed = 0.5f;
-    public float parallaxSpeed = 0.4f;
-    float counterT = 4; 
+    private readonly float speed = 1;
+    private readonly float parallaxSpeed = 0.4f;
+    private float counterT = 4; 
     public static bool desce = true; //saber se o fundo vai descer 
 
     void Update()
@@ -15,10 +12,9 @@ public class BackgroundMovement : MonoBehaviour
         if (counterT > 0) counterT -= Time.deltaTime;
         if (counterT <= 0 && desce)
         {
-
             // Faz o fundo mover para cima
-            GameObject.Find("Background").transform.Translate(Vector2.down * speed * Time.deltaTime);
-            GameObject.Find("Parallax").transform.Translate(Vector2.down * parallaxSpeed * Time.deltaTime);
+            GameObject.Find("Background").transform.Translate(Vector2.down * (speed * Time.deltaTime));
+            GameObject.Find("Parallax").transform.Translate(Vector2.down * (parallaxSpeed * Time.deltaTime));
         }
     }
 }

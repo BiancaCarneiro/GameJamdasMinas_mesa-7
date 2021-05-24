@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckHeight : MonoBehaviour
 {
-    // Variaveis
-    public float bgHeight;
-    public GameObject enemy;
-    public float enemyHeight;
+    private float bgHeight;
+    public float BgHeight => bgHeight;
+    private float enemyHeight = 74.35f;
+    public float EnemyHeight => enemyHeight;
+    [SerializeField] private GameObject enemy;
 
     void Update()
     {
